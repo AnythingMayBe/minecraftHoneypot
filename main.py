@@ -4,7 +4,7 @@ from twisted.internet import reactor
 
 class Protocol(ServerProtocol):
     def packet_status_request(self, buff):
-        print(f"PING | Listening on: {self.connect_host}:{self.connect_port} Protocol: {self.protocol_mode} Address: {self.remote_addr}")
+        print(f"PING | Listening on: {self.connect_host}:{self.connect_port} Protocol: {self.protocol_version} Address: {self.remote_addr}")
 
     def packet_login_start(self, buff):
         buff.discard()
