@@ -2,6 +2,7 @@ import json
 from quarry.net.server import ServerFactory, ServerProtocol
 from twisted.internet import reactor
 import requests
+from twisted.internet.error import CannotListenError
 
 # Base
 def jsonloads():
@@ -41,7 +42,9 @@ if __name__ == "__main__":
     
     # Ports
     for port in config["ports"]:
-        factory.listen("127.0.0.1", port=port)
+        try: factory.listen("127.0.0.1", port=port)
+        except CannotListenError as e: print(str(e))
+        except Exception as e: print("Exception while trying to listen on " + str(port) + ": " + str(e))
     
     # Run
     reactor.run()
