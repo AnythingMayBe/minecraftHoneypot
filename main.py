@@ -38,5 +38,10 @@ class Factory(ServerFactory):
 if __name__ == "__main__":
     jsonloads()
     factory = Factory()
-    factory.listen("127.0.0.1", 25565)
+    
+    # Ports
+    for port in config["ports"]:
+        factory.listen("127.0.0.1", port=port)
+    
+    # Run
     reactor.run()
