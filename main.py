@@ -14,7 +14,10 @@ def jsonloads():
 def sendAlert(message):
     if config["webhook"] != "": # If you want to disable the webhook alert, simply change the webhook parameter to ''
         data = {"content": message}
-        requests.post(config["webhook"], data=data)
+        
+        try:requests.post(config["webhook"], data=data)
+        except requests.exceptions.ConnectionError: print("Invalid Domain name parsed. Make sure you don't have any spaces.")
+
     else: print(message)
 
 # Quarry
