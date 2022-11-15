@@ -1,5 +1,6 @@
 {
     "webhook": "",
+    "disconnectReason": "bye",
     "ports": [
         "20000",
         "2000",

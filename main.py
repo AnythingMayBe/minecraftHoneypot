@@ -25,7 +25,7 @@ class Protocol(ServerProtocol):
     def packet_login_start(self, buff):
         buff.discard()
         sendAlert(f"JOIN | Listening on: {self.connect_host}:{self.connect_port} Protocol: {self.protocol_version} Address: {self.remote_addr}")
-        self.close("bye")
+        self.close(config["disconnectReason"])
 
 
 class Factory(ServerFactory):
