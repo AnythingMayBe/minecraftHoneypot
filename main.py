@@ -2,6 +2,11 @@ import json
 from quarry.net.server import ServerFactory, ServerProtocol
 from twisted.internet import reactor
 
+# Base
+def jsonloads():
+    with open("config.json", "r") as file:
+        config = json.loads(file.read())
+        file.close()
 
 # Quarry
 class Protocol(ServerProtocol):
@@ -19,6 +24,7 @@ class Factory(ServerFactory):
 
 # Start
 if __name__ == "__main__":
+    jsonloads()
     factory = Factory()
     factory.listen("127.0.0.1", 25565)
     reactor.run()
