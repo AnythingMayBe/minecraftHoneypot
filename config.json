@@ -1,4 +1,7 @@
 {
+    "blacklistJoin": true,
+    "blacklistPing": true,
+
     "webhook": "",
     "disconnectReason": "bye",
     "ports": [
