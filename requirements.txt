@@ -1,0 +1,2 @@
+quarry>=1
+twisted>=15
